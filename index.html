@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Midian Gaming</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png">
+    <!-- Bootstrap 5 CSS (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS -->
+    <link href="css/styles.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Facebook -->
+    <div id="fb-root"></div>
+
+    <!-- Header -->
+    <div class="container pt-0 pb-4">
+        
+        <!-- Timetable -->
+        <div class="my-3 text-center" id="timetableContainer">
+        <!-- JS will inject timetable -->
+        </div>
+
+        <!-- Social icons -->
+        <div class="text-center my-4">
+            <div class="ms-auto justify-content-center d-flex gap-4">
+
+                <!-- YouTube -->
+                <a href="https://www.youtube.com/c/midiangaming"
+                target="_blank"
+                class="text-decoration-none">
+                <img src="assets/icons/youtube_social_icon_white.png" height="38" alt="YouTube">
+                </a>
+
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/midiangaming/?hl=en"
+                target="_blank"
+                class="text-decoration-none">
+                <img src="assets/icons/Instagram_Glyph_Gradient.png" height="38" alt="Instagram">
+                </a>
+
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/midiangamingau"
+                target="_blank"
+                class="text-decoration-none">
+                <img src="assets/icons/Facebook_Logo_Primary.png" height="38" alt="Facebook">
+                </a>
+
+            </div>        
+        </div>    
+
+        <!-- Carousel -->
+        <h2 class="h4 fw-bold text-center mt-4 mb-3">Games we are playing now</h2>
+        <br>
+
+        <div id="carouselExample"
+        class="carousel slide"
+        data-bs-ride="carousel"
+        data-bs-interval="2500">
+            <div class="carousel-inner" id="carouselInner">
+            <!-- JS will injected carousel -->
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+        
+        <!-- Info blocks -->
+        <div class="row g-4 mt-4">
+            
+            <!-- Block 1 -->
+            <div class="col-md-6">
+                <div class="p-4 border rounded-3 bg-body-tertiary h-100">
+
+                    <!-- Block 1 Img -->
+                    <div class="text-center mt-3">
+                        <img src="assets/images/block1.png" style="height: 320px; width:100%;" class="img-fluid rounded-3 border" alt="Block 1 image">
+                    </div>
+
+                    <br>
+
+                    <h2 class="h4 fw-bold">A Tournament Location For Gamers By Gamers</h2>
+                    <p class="mb-2 fw-semibold">Tournament Location vs Store Location</p>
+                    <ul class="mb-0">
+                        <li>As a tournament location, we do not have “store” hours.</li>
+                        <li>We operate at tournament times as per the schedule.</li>
+                        <li>Locals come play and support the location that supports them.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Block 2 -->
+            <div class="col-md-6">
+                <div class="p-4 border rounded-3 bg-body-tertiary h-100">
+
+                    <!-- Block 2 Img -->
+                    <div class="text-center mt-3">
+                        <img src="assets/images/block2.png" style="height: 320px; width:100%" class="img-fluid rounded-3 border" alt="Block 2 image">
+                    </div>
+
+                    <br>
+
+                    <h2 class="h4 fw-bold">Run By Volunteers – We Look After Locals First!</h2>
+                    <ul class="mb-0">
+                        <li>Each event has a “Champion” who runs the event.</li>
+                        <li>Our community serves itself and runs itself.</li>
+                        <li>Become one of our locals and enjoy promos and special events.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- FAQs -->
+        <div class="mt-4">
+        <div class="p-4 border rounded-3 bg-body-tertiary">
+
+            <!-- Title at top left -->
+            <h2 class="h4 fw-bold mb-4">FAQs</h2>
+
+            <div class="row g-4 align-items-center">
+                
+                <!-- Accordion -->
+                <div class="col-lg-7">
+
+                    <div class="accordion" id="faqAccordion">
+                
+                        <!-- FAQ1 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                What happened to the Online Store?
+                            </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                With our concentration on the local scene we finally made the decision to throw all our efforts into our locals.
+                                This meant removing the distraction of our Online Store.
+                            </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ2 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                Future items 
+                            </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Future items will be sold within the store, and Online through Facebook Groups,
+                                Facebook Marketplace and Ebay
+
+                            </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ3 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                How do I become a local?
+                            </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Come along to events and get involved.
+                            </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Faq Img -->
+                <div class="col-lg-5 d-flex justify-content-center align-items-center">
+                    <div class="faq-image-box border rounded-3 overflow-hidden">
+                    <img src="assets/images/faqs.png" alt="FAQ image" class="w-100 h-100 faq-image-fill">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+
+        <!-- FB and Youtube Sextion -->
+        <div class="row g-4 mt-4 align-items-start">
+
+            <!-- YouTube Section -->
+            <div class="col-lg-6">
+                <h2 class="h4 fw-bold mb-3 text-center">Follow Us On YouTube</h2>
+
+                <div class="ratio ratio-4x3 border rounded-3 overflow-hidden">
+                    <iframe
+                        src="https://www.youtube.com/embed/videoseries?list=UUOp4m4sfvgp7y6rNEp_YEUg"
+                        title="Midian Gaming Latest Video"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Facebook Section -->
+            <div class="col-lg-6">
+                <h2 class="h4 fw-bold mb-3 text-center">Follow Us On Facebook</h2>
+
+                <div class="border rounded-3 overflow-hidden d-flex justify-content-center">
+                    <div class="fb-page"
+                        data-href="https://www.facebook.com/midiangamingau"
+                        data-tabs="timeline,events,photos"
+                        data-width="500"
+                        data-height="475"
+                        data-adapt-container-width="true"
+                        data-hide-cover="false"
+                        data-show-facepile="true">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Location -->
+        <div class="mt-5" id="location">
+            <h2 class="h4 fw-bold mb-3">Location</h2>
+            <div class="ratio ratio-21x9 border rounded-3 overflow-hidden">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3154.3087640889175!2d144.74184151212154!3d-37.75935777187246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad68b61792b7e2b%3A0x26d96a068fb9f86c!2sMidian%20Gaming!5e0!3m2!1sen!2sau!4v1770806266636!5m2!1sen!2sau"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </div>
+        
+
+    <!-- Footer -->
+    <footer class="mt-5 py-4 border-top text-center small text-muted">
+    © <span id="year"></span> Midian Gaming ·
+    📍 23 Eucumbene Drive, Ravenhall VIC 3023 ·
+    📞 <a href="tel:0414555990" class="text-decoration-none text-muted">0414 555 990</a>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- Bootstrap JS bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JS -->
+    <script src="js/main.js"></script>
+    <!-- Facebook -->
+    <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0">
+    </script>
+
+</body>
+</html>

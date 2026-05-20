@@ -212,7 +212,7 @@
                 <section class="slide">
                     <header>
                         <h1>OP Leaderboard</h1>
-                        <p class="summary">Total players: 11 | Generated 2026-05-20 17:05</p>
+                        <p class="summary">Total players: 11 | Generated 2026-05-20 17:30</p>
                     </header>
                     <table>
                         <thead>
@@ -297,16 +297,93 @@
     <script>
         const presentationGap = 80;
         const slideIntervalMs = 12000;
+        const scrollSpeedPixelsPerSecond = 28;
+        const scrollResetDelayMs = 1800;
         let showTicketSlide = false;
         let timer = null;
+        let scrollFrame = null;
+        let scrollResetTimer = null;
+        let lastScrollTime = null;
 
         function isPresentationMode() {
             return Boolean(document.fullscreenElement) ||
                 Math.abs(window.innerHeight - screen.height) <= presentationGap;
         }
 
+        function maxScrollY() {
+            return Math.max(
+                document.documentElement.scrollHeight,
+                document.body.scrollHeight
+            ) - window.innerHeight;
+        }
+
+        function canAutoScroll() {
+            return !window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
+                !showTicketSlide &&
+                maxScrollY() > 2;
+        }
+
+        function stopAutoScroll() {
+            if (scrollFrame) {
+                cancelAnimationFrame(scrollFrame);
+                scrollFrame = null;
+            }
+            if (scrollResetTimer) {
+                clearTimeout(scrollResetTimer);
+                scrollResetTimer = null;
+            }
+            lastScrollTime = null;
+        }
+
+        function scheduleScrollReset() {
+            if (scrollResetTimer) {
+                return;
+            }
+            scrollResetTimer = setTimeout(() => {
+                scrollResetTimer = null;
+                window.scrollTo(0, 0);
+                lastScrollTime = null;
+                requestAnimationFrame(startAutoScroll);
+            }, scrollResetDelayMs);
+        }
+
+        function autoScrollStep(timestamp) {
+            if (!canAutoScroll()) {
+                stopAutoScroll();
+                return;
+            }
+
+            if (lastScrollTime === null) {
+                lastScrollTime = timestamp;
+            }
+
+            const elapsedSeconds = (timestamp - lastScrollTime) / 1000;
+            lastScrollTime = timestamp;
+            window.scrollBy(0, scrollSpeedPixelsPerSecond * elapsedSeconds);
+
+            if (window.scrollY >= maxScrollY() - 2) {
+                stopAutoScroll();
+                scheduleScrollReset();
+                return;
+            }
+
+            scrollFrame = requestAnimationFrame(autoScrollStep);
+        }
+
+        function startAutoScroll() {
+            if (scrollFrame || scrollResetTimer || !canAutoScroll()) {
+                return;
+            }
+            scrollFrame = requestAnimationFrame(autoScrollStep);
+        }
+
         function setTicketSlide(isVisible) {
             document.body.classList.toggle("show-ticket-slide", isVisible);
+            stopAutoScroll();
+            window.scrollTo({ top: 0 });
+            if (!isVisible && document.body.classList.contains("presentation")) {
+                startAutoScroll();
+            }
         }
 
         function stopSlides() {
@@ -316,6 +393,7 @@
             }
             showTicketSlide = false;
             setTicketSlide(false);
+            stopAutoScroll();
         }
 
         function startSlides() {
@@ -333,8 +411,10 @@
             document.body.classList.toggle("presentation", active);
             if (active) {
                 startSlides();
+                startAutoScroll();
             } else {
                 stopSlides();
+                startAutoScroll();
             }
         }
 

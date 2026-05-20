@@ -212,7 +212,7 @@
                 <section class="slide">
                     <header>
                         <h1>Riftbound Leaderboard</h1>
-                        <p class="summary">Total players: 23 | Generated 2026-05-20 17:15</p>
+                        <p class="summary">Total players: 23 | Generated 2026-05-20 17:20</p>
                     </header>
                     <table>
                         <thead>
@@ -400,10 +400,10 @@
                 return;
             }
             scrollResetTimer = setTimeout(() => {
-                window.scrollTo({ top: 0, behavior: "smooth" });
                 scrollResetTimer = null;
+                window.scrollTo(0, 0);
                 lastScrollTime = null;
-                startAutoScroll();
+                requestAnimationFrame(startAutoScroll);
             }, scrollResetDelayMs);
         }
 
